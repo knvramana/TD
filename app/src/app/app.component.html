@@ -1,0 +1,34 @@
+<div id="my-app">
+
+  <div>
+    <img style="width: 600px" src="https://static7.depositphotos.com/1047404/751/i/950/depositphotos_7510774-stock-photo-empty-classroom.jpg"
+        class="thin-black-border"/>
+  
+  </div>
+  <div>
+    <p>The above image is an example for classroom</p>
+    <p>Click on the play button to know how to speak in classroom</p>
+  </div>
+
+  <div>
+
+    <button (click)="playAudio()">Sample Audio</button>
+
+    <div>Audio</div>
+    <div>
+      <button class="start-button" *ngIf="!isAudioRecording && !audioBlobUrl" (click)="startAudioRecording()">Start Audio Recording</button>
+      <button class="stop-button" *ngIf="isAudioRecording && !audioBlobUrl" (click)="stopAudioRecording()">Stop Audio Recording</button>
+      <button class="cancel-button" *ngIf="!isAudioRecording && audioBlobUrl" (click)="clearAudioRecordedData()">Clear Audio Recording</button>
+      <button class="download-button" *ngIf="!isAudioRecording && audioBlobUrl" (click)="downloadAudioRecordedData()">Download Audio Recording</button>
+      <button class="download-button" *ngIf="!isAudioRecording && audioBlobUrl" (click)="saveAudioRecordedData()">Save Audio Recording</button>
+      <div id="audioTimer" *ngIf="isAudioRecording && !audioBlobUrl"> {{ audioRecordedTime }} </div>
+      <audio *ngIf="!isAudioRecording && audioBlobUrl"  controls>
+        <source [src]="audioBlobUrl" type="audio/mp3">
+      </audio>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+    </div>
+  </div>
+</div>
